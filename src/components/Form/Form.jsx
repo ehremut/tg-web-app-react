@@ -4,9 +4,12 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
     const {tg} = useTelegram()
-
     const onSendData = useCallback(() => {
-        tg.sendData(JSON.stringify("данные, которые отправляются с react"))
+        const text = 'данные, которые отправляются с react'
+        const data = {
+            text
+        }
+        tg.sendData(JSON.stringify(data))
     }, [])
 
     useEffect(() => {
