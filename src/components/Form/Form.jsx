@@ -10,9 +10,9 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClecked', callback)
+        tg.onEvent('mainButtonClicked', callback)
         return () => {
-            tg.offEvent('mainButtonClecked', callback)
+            tg.offEvent('mainButtonClicked', callback)
         }
     },[])
 
