@@ -1,9 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import './Form.css'
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
     const {tg} = useTelegram()
+
+    const onSendData = useCallback(() => {
+        tg.sendData(JSON.stringify("данные, которые отправляются с react"))
+    }, [])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClecked', callback)
+        return () => {
+            tg.offEvent('mainButtonClecked', callback)
+        }
+    },[])
+
+    useEffect(() => {
+        tg.MainButton.show()
+    },[])
 
     useEffect(() => {
         tg.MainButton.setParams({
