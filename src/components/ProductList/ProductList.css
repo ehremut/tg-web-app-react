@@ -1,5 +1,5 @@
 .list {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     justify-content: center;
 }
